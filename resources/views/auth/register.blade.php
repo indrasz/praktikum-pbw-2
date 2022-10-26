@@ -1,21 +1,37 @@
-<x-guest-layout>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Register') }}
+        </h2>
+    </x-slot>
+
     <x-auth-card>
-        <x-slot name="logo">
+
+        {{-- <x-slot name="logo" class="my-6">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
-        </x-slot>
+        </x-slot> --}}
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
+            <!-- Username -->
             <div>
-                <x-input-label for="name" :value="__('Name')" />
+                <x-input-label for="username" :value="__('Username')" />
 
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus />
 
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                <x-input-error :messages="$errors->get('username')" class="mt-2" />
+            </div>
+
+            <!-- Full Name -->
+            <div>
+                <x-input-label for="fullname" :value="__('Fullname')" />
+
+                <x-text-input id="fullname" class="block mt-1 w-full" type="text" name="fullname" :value="old('fullname')" required autofocus />
+
+                <x-input-error :messages="$errors->get('fullname')" class="mt-2" />
             </div>
 
             <!-- Email Address -->
@@ -50,6 +66,33 @@
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
 
+             <!-- Alamat -->
+             <div>
+                <x-input-label for="address" :value="__('Alamat')" />
+
+                <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus />
+
+                <x-input-error :messages="$errors->get('address')" class="mt-2" />
+            </div>
+
+             <!-- Tanggal Lahir -->
+             <div>
+                <x-input-label for="birthdate" :value="__('Tanggal lahir')" />
+
+                <x-text-input id="birthdate" class="block mt-1 w-full" type="date" name="birthdate" :value="old('birthdate')" required autofocus />
+
+                <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
+            </div>
+
+             <!-- No Telp -->
+             <div>
+                <x-input-label for="phoneNumber" :value="__('No. Telepon')" />
+
+                <x-text-input id="phoneNumber" class="block mt-1 w-full" type="text" name="phoneNumber" :value="old('phoneNumber')" required autofocus />
+
+                <x-input-error :messages="$errors->get('phoneNumber')" class="mt-2" />
+            </div>
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}
@@ -61,4 +104,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-app-layout>
