@@ -63,6 +63,28 @@
                 <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
             </div>
 
+            <!-- Religion -->
+            <div class="mt-4">
+                <x-input-label for="religion" :value="__('Religion')" />
+
+                <x-text-input id="religion" class="block mt-1 w-full" type="text" name="religion" :value="old('religion')" required />
+
+                <x-input-error :messages="$errors->get('religion')" class="mt-2" />
+            </div>
+
+
+            <!-- Gender -->
+            <div class="mt-4">
+                <x-input-label for="gender" :value="__('Gender')" />
+
+                <select name="gender" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="gender" id="gender">
+                    <option value="1">Laki laki</option>
+                    <option value="2">Perempuan</option>
+                </select>
+
+                <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
+            </div>
+
             <!-- Password -->
             <div class="mt-4">
                 <x-input-label for="password" :value="__('Password')" />
