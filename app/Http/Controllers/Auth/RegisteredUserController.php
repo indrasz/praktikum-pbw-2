@@ -57,9 +57,9 @@ class RegisteredUserController extends Controller
             'gender' => $request->gender
         ]);
 
-        event(new Registered($user));
+        USer::create($user);
 
-        Auth::login($user);
+        // Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
     }
