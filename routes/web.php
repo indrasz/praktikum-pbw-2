@@ -31,4 +31,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     });
 });
 
+// Route::get('user', [UserController::class, 'index'])->name('user');
+
 require __DIR__.'/auth.php';
