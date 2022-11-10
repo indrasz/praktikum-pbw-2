@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,14 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('pages.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+    Route::prefix('dashboard')->group(function () {
+        Route::get('user', [UserController::class, 'index'])->name('user');
+    });
+});
+
 
 require __DIR__.'/auth.php';

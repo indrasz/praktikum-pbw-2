@@ -9,13 +9,22 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
+            <!-- Username -->
             <div>
-                <x-input-label for="name" :value="__('Name')" />
+                <x-input-label for="username" :value="__('username')" />
 
-                <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus />
 
-                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                <x-input-error :messages="$errors->get('username')" class="mt-2" />
+            </div>
+
+            <!-- Fullname-->
+            <div class="mt-4">
+                <x-input-label for="fullname" :value="__('fullname')" />
+
+                <x-text-input id="fullname" class="block mt-1 w-full" type="text" name="fullname" :value="old('fullname')" required />
+
+                <x-input-error :messages="$errors->get('fullname')" class="mt-2" />
             </div>
 
             <!-- Email Address -->
@@ -25,6 +34,33 @@
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
 
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
+
+            <!-- Address -->
+            <div class="mt-4">
+                <x-input-label for="address" :value="__('address')" />
+
+                <x-text-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required />
+
+                <x-input-error :messages="$errors->get('address')" class="mt-2" />
+            </div>
+
+            <!-- Phone Number -->
+            <div class="mt-4">
+                <x-input-label for="phoneNumber" :value="__('phoneNumber')" />
+
+                <x-text-input id="phoneNumber" class="block mt-1 w-full" type="text" name="phoneNumber" :value="old('phoneNumber')" required />
+
+                <x-input-error :messages="$errors->get('phoneNumber')" class="mt-2" />
+            </div>
+
+            <!-- Birthdate -->
+            <div class="mt-4">
+                <x-input-label for="birthdate" :value="__('birthdate')" />
+
+                <x-text-input id="birthdate" class="block mt-1 w-full" type="date" name="birthdate" :value="old('birthdate')" required />
+
+                <x-input-error :messages="$errors->get('birthdate')" class="mt-2" />
             </div>
 
             <!-- Password -->
