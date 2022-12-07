@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/user',[UserController::class, 'index'] )->middleware(['auth', 'verified'])->name('user');
 Route::get('/userRegistration',[UserController::class, 'create'] )->middleware(['auth', 'verified'])->name('userRegistration');
-Route::get('/userView/{id}',[UserController::class, 'show'] )->middleware(['auth', 'verified'])->name('userView');
+Route::get('/userView/{user}',[UserController::class, 'show'] )->middleware(['auth', 'verified'])->name('userView');
 Route::post('/userStore',[UserController::class, 'store'] )->middleware(['auth', 'verified'])->name('userStore');
 Route::get('/userDatatable',[UserController::class, 'getAllUser'] )->middleware(['auth', 'verified'])->name('userDatatable');
 

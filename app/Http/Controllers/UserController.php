@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules;
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Hash;
-use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
@@ -50,9 +49,9 @@ class UserController extends Controller
             return DataTables::of($query)
                 ->addColumn('action', function ($item) {
                     return '
-                    <div class="flex-row">
+     b                <div class="flex-row">
                         <a
-                            href="' . route('userView',  $item->id) .'
+                            href="'.route('userView',  $item->id).'
                             type="button"
                             class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 mr-2 border border-gray-400 rounded shadow">
                             Show
@@ -77,6 +76,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        // dd($users);
         return view('user.daftarPengguna', compact('users'));
     }
 
@@ -135,7 +135,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
         return view('user.infoPengguna');
     }
