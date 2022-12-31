@@ -21,7 +21,7 @@ class CollectionController extends BaseController
         $collection = Collection::all();
         return $this->sendResponse(
             CollectionResource::collection($collection), 'Post fetched'
-        );
+        );  
     }
 
     /**
